@@ -1,4 +1,3 @@
-
 const express = require('express');
 const morgan = require('morgan');
 
@@ -21,8 +20,8 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
 // app.get('/api/v1/tours/', getAllTours);
 
@@ -34,14 +33,6 @@ app.use((req, res, next) => {
 
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-app.use('/api/v1/tours', tourRouter);
-app.use('/api/v1/users', userRouter);
+//
 
-
-
-
-const port = 3000;
-
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-});
+module.exports = app;
